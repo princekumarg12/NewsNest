@@ -9,7 +9,6 @@ export default class App extends Component {
     return (
       <div>
         <NavBar/>
-        hello my  first class based comp
         <News/>
       </div>
     )
