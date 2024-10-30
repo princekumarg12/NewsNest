@@ -13,7 +13,7 @@ export class New extends Component {
   }
 
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/everything?q=tesla&from=2024-09-25&sortBy=publishedAt&apiKey=9af9fbefa6e74ad7a07cf42df3abca3e&page=1&pageSize=4`;
+    let url = `https://newsapi.org/v2/everything?q=tesla&from=${this.props.newsDate}&sortBy=publishedAt&apiKey=9af9fbefa6e74ad7a07cf42df3abca3e&page=1&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json()
     console.log("my api parsedData:", parsedData);
@@ -24,7 +24,7 @@ export class New extends Component {
   handlePrevClick = async () => {
     console.log("previous clicked");
 
-    let url = `https://newsapi.org/v2/everything?q=tesla&from=2024-09-25&sortBy=publishedAt&apiKey=9af9fbefa6e74ad7a07cf42df3abca3e&page=${this.state.page - 1}&pageSize=4`;
+    let url = `https://newsapi.org/v2/everything?q=tesla&from=${this.props.newsDate}&sortBy=publishedAt&apiKey=9af9fbefa6e74ad7a07cf42df3abca3e&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json()
     console.log("my api parsedData:", parsedData);
@@ -36,7 +36,7 @@ export class New extends Component {
   handleNextClick = async () => {
     console.log("next clicked");
     if (this.state.page + 1 < Math.ceil(this.state.totalResults / 4)) {
-      let url = `https://newsapi.org/v2/everything?q=tesla&from=2024-09-25&sortBy=publishedAt&apiKey=9af9fbefa6e74ad7a07cf42df3abca3e&page=${this.state.page + 1}&pageSize=4`;
+      let url = `https://newsapi.org/v2/everything?q=tesla&from=${this.props.newsDate}&sortBy=publishedAt&apiKey=9af9fbefa6e74ad7a07cf42df3abca3e&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
       let data = await fetch(url);
       let parsedData = await data.json()
       console.log("my api parsedData:", parsedData);
