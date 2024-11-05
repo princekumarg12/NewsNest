@@ -17,7 +17,7 @@ export default class App extends Component {
     return (
       <div>
         <NavBar />
-        <News pageSize={4} newsDate={formattedDate} />
+        <News pageSize={4} newsDate={formattedDate} country="us" />
       </div>
     )
   }
